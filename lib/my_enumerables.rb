@@ -8,4 +8,15 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each(&block)
+    if block_given?
+      i = 0
+      while i < length
+        block.call(at(i))
+        i += 1
+      end
+    end
+
+    self
+  end
 end
