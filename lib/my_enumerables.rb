@@ -41,6 +41,17 @@ module Enumerable
   def my_none?(&condition)
     !my_any?(&condition)
   end
+
+  def my_count
+    return length unless block_given?
+
+    count = 0
+    my_each do |item|
+      count += 1 if yield(item)
+    end
+
+    count
+  end
 end
 
 # You will first have to define my_each
