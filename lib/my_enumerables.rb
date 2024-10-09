@@ -37,6 +37,10 @@ module Enumerable
 
     any_match
   end
+
+  def my_none?(&condition)
+    !my_any?(&condition)
+  end
 end
 
 # You will first have to define my_each
