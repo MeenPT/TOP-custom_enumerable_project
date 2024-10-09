@@ -52,6 +52,14 @@ module Enumerable
 
     count
   end
+
+  def my_map(&block)
+    result = []
+
+    my_each { |item| result.push(block.call(item)) }
+
+    result
+  end
 end
 
 # You will first have to define my_each
