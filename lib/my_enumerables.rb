@@ -60,6 +60,16 @@ module Enumerable
 
     result
   end
+
+  def my_inject(initial_value)
+    acc = initial_value
+
+    my_map do |item|
+      acc = yield(acc, item)
+    end
+
+    acc
+  end
 end
 
 # You will first have to define my_each
