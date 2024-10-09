@@ -11,6 +11,19 @@ module Enumerable
 
     self
   end
+
+  def my_all?(&condition)
+    all_match = true
+
+    my_each do |item|
+      unless condition.call(item)
+        all_match = false
+        break
+      end
+    end
+
+    all_match
+  end
 end
 
 # You will first have to define my_each
