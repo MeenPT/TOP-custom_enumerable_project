@@ -24,6 +24,19 @@ module Enumerable
 
     all_match
   end
+
+  def my_any?(&condition)
+    any_match = false
+
+    my_each do |item|
+      if condition.call(item)
+        any_match = true
+        break
+      end
+    end
+
+    any_match
+  end
 end
 
 # You will first have to define my_each
